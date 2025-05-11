@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Declaración XML estándar -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- Definición del espacio de nombres y esquema XML para el archivo POM -->
+
+    <modelVersion>4.0.0</modelVersion>
+    <!-- Versión del modelo POM que se está utilizando -->
+
+    <groupId>org.Documentacion</groupId>
+    <!-- Identificador único del grupo o empresa que desarrolla el proyecto -->
+
+    <artifactId>Documentacion</artifactId>
+    <!-- Identificador único del proyecto dentro del grupo -->
+
+    <version>1.0-SNAPSHOT</version>
+    <!-- Versión actual del proyecto. 'SNAPSHOT' indica que está en desarrollo -->
+
+    <name>Documentacion</name>
+    <!-- Nombre legible del proyecto -->
+
+    <packaging>war</packaging>
+    <!-- Tipo de empaquetado del proyecto. 'war' indica que es una aplicación web -->
+
+    <properties>
+        <!-- Propiedades del proyecto que se usarán en plugins y configuración general -->
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Codificación usada para los archivos fuente -->
+
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <!-- Versión de Java utilizada tanto para compilar como para generar bytecode -->
+
+        <junit.version>5.11.0</junit.version>
+        <!-- Versión de JUnit definida como propiedad para futuras pruebas -->
+    </properties>
+
+    <dependencies>
+        <!-- Declaración de dependencias necesarias para el proyecto -->
+
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>11.0.0-M1</version>
+            <scope>provided</scope>
+            <!-- Dependencia de Jakarta EE. 'provided' significa que será proporcionada por el servidor (ej. Tomcat o Payara) -->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- Configuración relacionada con el proceso de construcción del proyecto -->
+
+        <plugins>
+            <!-- Plugins que se utilizarán durante la compilación y despliegue -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <!-- Plugin que se encarga de compilar el código fuente Java -->
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <!-- Configuración del plugin para desplegar la aplicación automáticamente en Tomcat -->
+                    <url>http://localhost:8080/manager/text</url>
+                    <!-- URL de acceso al Tomcat Manager -->
+
+                    <username>vanship</username>
+                    <password>omegatres</password>
+                    <!-- Credenciales del usuario configurado en Tomcat para acceder al Manager -->
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <!-- Plugin que se encarga de empaquetar el proyecto como un archivo WAR -->
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
